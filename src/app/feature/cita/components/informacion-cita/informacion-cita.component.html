@@ -1,0 +1,20 @@
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="d-flex w-100 justify-content-between">
+            <strong class="mb-1"><small>Cita No. </small> {{ citaResumen.id }}</strong>
+            
+            <span class="badge bg-{{color}} rounded-pill "><span class="{{icon}}"></span>    {{ estadoCita }}</span>
+        </div>
+    </li>
+    <li class="list-group-item align-items-center">
+        <p class="mb-1"><span class="bi-calendar-check-fill"></span> {{ citaResumen.fecha | date }}</p>
+        <p class="mb-1"><strong>Jornada: </strong> {{ (citaResumen.jornada=="M" ? "Manaña" : "Tarde") }}</p>
+        <p class="mb-1"><strong>Afiliado: </strong> {{citaResumen.numeroIdentificacion+' - '+citaResumen.nombreAfiliado }}</p>
+        <p class="mb-1"><strong>Procedimiento: </strong> {{ citaResumen.codigoProcedimiento+' - '+citaResumen.nombreProcedimiento }}</p>
+        
+    </li>
+
+    <li class="list-group-item align-items-center">
+        <p class="mb-2"><strong>Valor del copago: </strong> {{ citaResumen.valorCopago | currency }}</p>
+    </li>
+</ul>

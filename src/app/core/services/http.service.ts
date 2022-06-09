@@ -17,6 +17,10 @@ export class HttpService {
     };
   }
 
+  public optsName(name: string): Options {
+    return this.setHeader('xhr-name', name);
+  }
+
   public doGet<T>(serviceUrl: string, opts?: Options): Observable<T> {
     const ropts = this.createOptions(opts);
     return this.http.get<T>(serviceUrl, ropts);

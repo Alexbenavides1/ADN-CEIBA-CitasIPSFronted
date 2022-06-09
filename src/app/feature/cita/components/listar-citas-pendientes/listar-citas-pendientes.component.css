@@ -1,0 +1,15 @@
+.fieldset-pendientes {
+    border: 1px rgb(94, 81, 81) solid !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+}
+
+.legend-pendientes {
+    float: none !important;
+    font-size: 1.2em !important;
+    font-weight: 600 !important;
+    text-align: left !important;
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+}

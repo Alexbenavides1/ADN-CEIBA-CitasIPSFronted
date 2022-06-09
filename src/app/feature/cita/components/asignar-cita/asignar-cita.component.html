@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="mt-3">
+        <h1 class="mb-3">Asignar cita</h1>
+
+        <form [formGroup]="citaForm" (ngSubmit)="asignarCita()">
+            <div class="container-fluid">
+
+                <fieldset class="fieldset-custom">
+                    <legend id="legend-informacion-afiliado" class="legend-custom">Datos de la cita</legend>
+
+                    <div class="row">
+
+                        <div class="mb-3 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                            <label for="afiliado" class="form-label">Afiliado</label>
+                            <select validar formControlName="afiliado" id="afiliado" name="afiliado" class="form-select" >
+                                <option value="" hidden>Seleccionar afiliado</option>
+                                <option *ngFor="let afiliado of listaAfiliados | async" [value]="afiliado.numeroIdentificacion">{{afiliado.numeroIdentificacion+' - '+afiliado.nombre}}</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                            <label for="procedimiento" class="form-label">Procedimiento</label>
+                            <select validar formControlName="procedimiento" id="procedimiento" name="procedimiento" class="form-select" >
+                                <option value="" hidden>Seleccionar procedimiento</option>
+                                <option *ngFor="let procedimiento of listaProcedimientos | async" [value]="procedimiento.codigo">{{procedimiento.codigo +' - '+procedimiento.nombre}}</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                            <label for="fecha" class="form-label">Fecha</label>
+                            <input validar formControlName="fecha" id="fecha" name="fecha" type="date" class="form-control" />
+                        </div>
+
+                        <div class="mb-3 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                            <label for="jornada" class="form-label">Jornada</label>
+                            <select validar formControlName="jornada" id="jornada" name="jornada" class="form-select" >
+                                <option value="" hidden>Seleccionar jornada</option>
+                                <option value="M">Mañana</option>
+                                <option value="T">Tarde</option>
+                            </select>
+                        </div>
+            
+                    </div>    
+                </fieldset>
+
+               
+
+                       
+                
+                <div class="row">
+                    <div class="mt-3 mb-2 d-flex justify-content-center cursor-btn">
+                        <button id="btn-asignar-cita" [disabled]="citaForm.invalid" type="submit" class="btn btn-success rounded-pill">Guardar</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
