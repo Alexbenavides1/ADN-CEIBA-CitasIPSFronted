@@ -13,7 +13,6 @@ export class CitaComponent implements OnInit {
     this.tituloApp="Citas IPS";
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

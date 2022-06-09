@@ -17,4 +17,9 @@
     <li class="list-group-item align-items-center">
         <p class="mb-2"><strong>Valor del copago: </strong> {{ citaResumen.valorCopago | currency }}</p>
     </li>
+    <li *ngIf="estadoCita == 'PENDIENTE'" class="list-group-item align-items-center">
+        <button id="btn-cancelar-cita" class="badge bg-danger" (click)="cancelarCita(citaResumen.id)">
+            <i class="bi-x-octagon-fill" aria-hidden="true"></i> Cancelar
+        </button>
+    </li>
 </ul>

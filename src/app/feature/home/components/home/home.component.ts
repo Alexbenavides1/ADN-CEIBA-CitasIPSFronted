@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TRM } from '@home/shared/model/trm';
 import { HomeService } from '../../shared/service/home.service';
@@ -16,28 +17,28 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.inicializarTRM();
-    this.fechaTrm = this.obtenerFechaActualTRM();
+    this.fechaTrm = this.obtenerFechaActualTRM(); 
     this.obtenerTRM();
   }
 
   obtenerFechaActualTRM(): string {
-    const fechaActual = new Date();
-    return `${fechaActual.getFullYear()}-${(fechaActual.getMonth() + 1)}-${fechaActual.getDate()}`;
+    return formatDate(Date.now(),'yyyy-MM-dd','en-US');
   }
 
   inicializarTRM() {
     this.trm = {
-      unit: '',
-      validityFrom: undefined,
-      validityTo: undefined,
-      value: 0,
-      success: undefined
+      valor: 0,
+      unidad: '',
+      vigenciadesde: undefined,
+      vigenciahasta: undefined
     };
   }
 
   obtenerTRM() {
-    this.homeService.consultarTRM(this.fechaTrm).subscribe((response) => {
-      this.trm = response.data;
+    this.homeService.consultarTRM(this.obtenerFechaActualTRM()).subscribe((response) => {     
+      this.trm = response[0];     
+      console.log(this.trm);
+       
     });
   }
 }

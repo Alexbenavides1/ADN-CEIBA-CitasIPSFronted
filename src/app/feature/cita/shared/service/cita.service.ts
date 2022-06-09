@@ -38,9 +38,9 @@ export class CitaService {
     this.http.optsName('consultar todos las citas canceladas'));
   }
 
-  /*
-  public cancelarCita(idPedido: number) {
-    return this.http.doPost<any, void>(`${environment.endpoint}/pedido/entregar/${idPedido}`, "", this.http.optsName('entregar pedidos'));
+  
+  public cancelarCita(idCita: number) {
+    return this.http.doPost<any, void>(`${environment.endpoint}/cita/cancelar/${idCita}`, "", this.http.optsName('cancelar cita'));
   }
-  */
+  
 }

@@ -10,11 +10,10 @@ export class HomeMockService {
 
     crearTRM() {
         return {
-            unit: "COP",
-            validityFrom: new Date("2022-05-25T05:00:00.000Z"),
-            validityTo: new Date("2022-05-25T05:00:00.000Z"),
-            value: 3971.28,
-            success: true
+            unidad: "COP",
+            vigenciadesde: new Date("2022-05-25T05:00:00.000Z"),
+            vigenciahasta: new Date("2022-05-25T05:00:00.000Z"),
+            valor: 3971.28,
         };
     }
 }

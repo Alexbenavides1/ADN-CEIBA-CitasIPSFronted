@@ -8,13 +8,14 @@ import { RespuestaServicioTRM } from '../model/respuesta-servicio-trm';
 })
 export class HomeService {
 
-  private urlData: string = './assets/trm.json';
+  private urlData: string ='https://www.datos.gov.co/resource/32sa-8pi3.json'; 
+  //'./assets/trm.json';
 
   constructor(protected http: HttpService) { }
 
   public consultarTRM(fechaActualTRM: string) {
     let options: Options = {
-      params: new HttpParams().set('date', fechaActualTRM)
+      params: new HttpParams().set('vigenciadesde', fechaActualTRM)
     };
     return this.http.doGet<RespuestaServicioTRM>(`${this.urlData}`, options);
   }

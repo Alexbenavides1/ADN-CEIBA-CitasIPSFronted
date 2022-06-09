@@ -44,9 +44,9 @@ describe('HomeComponent', () => {
     spyOn(service, 'consultarTRM').withArgs(fechaActualTRM).and.returnValue(of(respuestaServicioTRM));
     component.ngOnInit();
     
-    expect(component.trm.unit).toEqual(respuestaServicioTRM.data.unit);
-    expect(component.trm.validityFrom).toEqual(respuestaServicioTRM.data.validityFrom);
-    expect(component.trm.validityTo).toEqual(respuestaServicioTRM.data.validityTo);
+    expect(component.trm.unidad).toEqual(respuestaServicioTRM.data.unidad);
+    expect(component.trm.vigenciadesde).toEqual(respuestaServicioTRM.data.vigenciadesde);
+    expect(component.trm.vigenciahasta).toEqual(respuestaServicioTRM.data.vigenciahasta);
   });
 
   it('Obtener TRM', () => {
@@ -58,7 +58,7 @@ describe('HomeComponent', () => {
     
     component.obtenerTRM();
   
-    expect(component.trm.value).toEqual(respuestaServicioTRM.data.value);
-    expect(component.trm.success).toEqual(true);
+    expect(component.trm.valor).toEqual(respuestaServicioTRM.data.valor);
+
   });
 });

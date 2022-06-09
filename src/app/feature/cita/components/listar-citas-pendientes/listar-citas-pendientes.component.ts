@@ -16,17 +16,8 @@ export class ListarCitasPendientesComponent implements OnInit {
 
   ngOnInit(): void {
     this.citaService.consultarTodasLasCitasPendientes().subscribe(response => {
-
-
       this.listaCitasPendientes = response;
-      
 
-      for (const cita of this.listaCitasPendientes) {
-    
-        console.log(cita);
-       
-        
-      }
     },(error) => {
       
       Swal.fire({

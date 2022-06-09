@@ -1,10 +1,10 @@
 {
     "data":{
         "unit":"COP",
-        "validityFrom":"2022-06-08T05:00:00.000Z",
-        "validityTo":"2022-06-08T05:00:00.000Z",
-        "value":3971.28,
+        "validityFrom":"2022-06-10T05:00:00.000Z",
+        "validityTo":"2022-06-10T05:00:00.000Z",
+        "value":3849.77,
         "success":true
-    },
-    "web":"www.makaw.dev"
+    }
+   
 }
