@@ -34,29 +34,33 @@ export class AsignarCitaComponent implements OnInit {
   }
 
   guardarCita(comandoSolicitudAsignarCita: ComandoSolicitudAsignarCita){
-    this.citaService.guardarCita(comandoSolicitudAsignarCita).subscribe(response => {
-      if (response['valor'] !== undefined) {
+    this.citaService.guardarCita(comandoSolicitudAsignarCita).subscribe(
+      {
+        next: response => {
+          if (response['valor'] !== undefined) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Realizado',
+              text: 'La cita se ha asignado exitosamente.',
+              showConfirmButton: true,
+              timer: 4000
+            });
+    
+            this.resetearCitaForm();
+          }
+        }
+      ,
+       error: error => {
         Swal.fire({
-          icon: 'success',
-          title: 'Realizado',
-          text: 'La cita se ha asignado exitosamente.',
+          icon: 'error',
+          title: 'Error',
+          text: `Se ha producido un error. ${error.error.mensaje}`,
           showConfirmButton: true,
-          timer: 4000
-        });
-
-        this.resetearCitaForm();
+          timer: 5000
+        });        
       }
-    }, (error) => {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: `Se ha producido un error. ${error.error.mensaje}`,
-        showConfirmButton: true,
-        timer: 5000
-      });
-
-      
-    });
+    }
+    );
   }
 
   private construirFormularioCita() {

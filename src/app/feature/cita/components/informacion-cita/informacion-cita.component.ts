@@ -24,14 +24,14 @@ export class InformacionCitaComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.color=(this.color == undefined ? 'danger' : this.color);
+    this.color=(this.color === undefined ? 'danger' : this.color);
   }
 
   cancelarCita(idCita: number){
 
     Swal.fire({
       title: '¿Esta seguro(a) de cancelar la cita?',
-      text: "Esta acción no se puede revertir",
+      text: 'Esta acción no se puede revertir',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -42,34 +42,34 @@ export class InformacionCitaComponent implements OnInit {
 
       if (result.isConfirmed) {
         
-        this.citaService.cancelarCita(idCita).subscribe(response => {
-     
-          if (response !== undefined) {
+        this.citaService.cancelarCita(idCita).subscribe({
+          next: response => {
+            if (response !== undefined) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Realizado',
+                text: 'La cita se ha cancelado exitosamente.',
+                showConfirmButton: true,
+                timer: 4000
+              });
+              
+              this.route.navigateByUrl('listar/canceladas');
+            }
+          },
+          error: error => {
             Swal.fire({
-              icon: 'success',
-              title: 'Realizado',
-              text: 'La cita se ha cancelado exitosamente.',
+              icon: 'error',
+              title: 'Error',
+              text: `Se ha producido un error. ${error.error.mensaje}`,
               showConfirmButton: true,
-              timer: 4000
+              timer: 5000
             });
-            
-            this.route.navigateByUrl('listar/canceladas');
           }
-        }, (error) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: `Se ha producido un error. ${error.error.mensaje}`,
-            showConfirmButton: true,
-            timer: 5000
-          });
-    
-          
         });
 
       }
       
-    })
+    });
     
     
   }

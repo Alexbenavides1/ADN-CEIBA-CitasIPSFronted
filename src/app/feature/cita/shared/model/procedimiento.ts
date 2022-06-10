@@ -7,4 +7,5 @@ export class Procedimiento{
         this.codigo=codigo;
         this.nombre=nombre;
     }
+    
 }

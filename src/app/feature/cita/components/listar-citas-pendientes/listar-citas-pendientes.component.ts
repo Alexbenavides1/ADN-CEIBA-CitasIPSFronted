@@ -15,20 +15,23 @@ export class ListarCitasPendientesComponent implements OnInit {
   constructor(private citaService : CitaService) { }
 
   ngOnInit(): void {
-    this.citaService.consultarTodasLasCitasPendientes().subscribe(response => {
-      this.listaCitasPendientes = response;
 
-    },(error) => {
-      
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: `Se ha producido un error. ${error.error.mensaje}`,
-        showConfirmButton: true,
-        timer: 3000
-      });
-    
+    this.citaService.consultarTodasLasCitasPendientes().subscribe({
+      next: response => {
+        this.listaCitasPendientes = response;
+      },
+      error: error => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: `Se ha producido un error. ${error.error.mensaje}`,
+          showConfirmButton: true,
+          timer: 3000
+        });
+      }
     });
+
+    
   }
 
 }

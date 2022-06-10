@@ -15,21 +15,22 @@ export class ListarCitasCanceladasComponent implements OnInit {
   constructor(private citaService : CitaService) { }
 
   ngOnInit(): void {
-    this.citaService.consultarTodasLasCitasCanceladas().subscribe(response => {
 
-      this.listaCitasCanceladas = response;
-
-    },(error) => {
-      
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: `Se ha producido un error. ${error.error.mensaje}`,
-        showConfirmButton: true,
-        timer: 3000
-      });
-    
+    this.citaService.consultarTodasLasCitasCanceladas().subscribe({
+      next: response => {
+        this.listaCitasCanceladas = response;
+      },
+      error: error => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: `Se ha producido un error. ${error.error.mensaje}`,
+          showConfirmButton: true,
+          timer: 3000
+        })
+      }
     });
+
   }
 
 }

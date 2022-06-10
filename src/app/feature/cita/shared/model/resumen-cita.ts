@@ -10,7 +10,8 @@ export class ResumenCita{
     valorCopago: number;
     estado: string;
 
-    constructor(id: number,nombreAfiliado: string,numeroIdentificacion: string,codigoProcedimiento: string,nombreProcedimiento: string,fecha: string,jornada: string,valorCopago: number,estado: string){
+    constructor(id: number,nombreAfiliado: string,numeroIdentificacion: string,codigoProcedimiento: string,nombreProcedimiento: string,
+                fecha: string,jornada: string,valorCopago: number,estado: string){
             this.id=id;
             this.nombreAfiliado=nombreAfiliado;
             this.numeroIdentificacion=numeroIdentificacion;

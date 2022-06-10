@@ -10,7 +10,7 @@ export class CitaComponent implements OnInit {
   tituloApp : string;
 
   constructor() { 
-    this.tituloApp="Citas IPS";
+    this.tituloApp='Citas IPS';
   }
 
   ngOnInit(): void {}

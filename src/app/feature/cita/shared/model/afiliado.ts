@@ -7,4 +7,5 @@ export class Afiliado{
         this.nombre=nombre;
         this.numeroIdentificacion=numeroIdentificacion;
     }
+    
 }
