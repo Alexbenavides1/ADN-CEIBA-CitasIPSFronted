@@ -48,7 +48,7 @@ describe('AsignarCitaComponent', () => {
     component.listaAfiliados.subscribe(response => {
       expect(response.length).toBe(3);
     });
-    /*expect(component.listaProductosOrdenados).toEqual([]);*/
+
   });
 
 
@@ -60,37 +60,36 @@ describe('AsignarCitaComponent', () => {
     
     component.asignarCita();
 
-    /*expect(component.listaProductosOrdenados).toEqual([]);*/
   });
 
   it('Asignar cita de forma exitosa', () => {
     
  
     component.listaAfiliados = of(citaMockService.crearListadoAfiliados());
+    component.listaProcedimientos = of(citaMockService.crearListadoProcedimientos());
+
     
     component.citaForm.controls.afiliado.setValue("1067000000");
     component.citaForm.controls.procedimiento.setValue('808081');
+    component.citaForm.controls.jornada.setValue('M');
+    component.citaForm.controls.fecha.setValue("2022-06-13");
 
 
     expect(component.citaForm.valid).toBeTruthy();
 
     component.asignarCita();
     
-    /*expect(component.listaProductosOrdenados.length).toEqual(3);
-    expect(component.pedidoForm.get('direccion').value).toBe('Calle 2 sur # 34 a');*/
+
     expect(component.citaForm.get('procedimiento').value).toBe('808081');
   });
 
   it('Crear cita exitosamente', () => {
     const comandoSolicitud : ComandoSolicitudAsignarCita = citaMockService.crearComandoSolicitudAsignarCita();
     
-    //component.listaProductosOrdenados = (pedidoMockService.crearListadoProductosOrdenados());
-    
     spyOn(service, 'guardarCita').withArgs(comandoSolicitud).and.returnValue(of(10));
 
     component.guardarCita(comandoSolicitud);
     
-    //expect(component.listaProductosOrdenados.length).toEqual(3);
   });
 
 });

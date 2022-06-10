@@ -9,7 +9,7 @@ describe('HomeService', () => {
   let httpMock: HttpTestingController;
   const homeMockService: HomeMockService = new HomeMockService();
 
-  const apiEndpointConsultarTRM = `https://www.datos.gov.co/resource/32sa-8pi3.json?vigenciadesde=2002-03-19`;
+  const apiEndpointConsultarTRM = `https://www.datos.gov.co/resource/32sa-8pi3.json?vigenciadesde=2022-06-09`;
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({
@@ -35,10 +35,10 @@ describe('HomeService', () => {
 
   it('deberia consultar el TRM', () => {
 
-    const fechaTRM = '2022-06-08';
+    const fechaTRM = '2022-06-09';
     const respuestaTRM = homeMockService.crearRespuestaAPITRM();
     
-    service.consultarTRM(fechaTRM).subscribe(response => {
+    service.consultarTRM(fechaTRM).subscribe(response => {    
       expect(response).toBe(respuestaTRM);
     });
 

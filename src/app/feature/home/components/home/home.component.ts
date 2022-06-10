@@ -36,9 +36,7 @@ export class HomeComponent implements OnInit {
 
   obtenerTRM() {
     this.homeService.consultarTRM(this.obtenerFechaActualTRM()).subscribe((response) => {     
-      this.trm = response[0];     
-      console.log(this.trm);
-       
+      this.trm = response[0];        
     });
   }
 }

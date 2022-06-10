@@ -70,7 +70,7 @@ describe('CitaService', () => {
     const procedimientos = citaMockService.crearListadoProcedimientos();
     
     service.consultarTodosLosProcedimientos().subscribe(response => {
-      expect(response.length).toBe(2);
+      expect(response.length).toBe(3);
       expect(response).toBe(procedimientos);
     });
 
@@ -81,10 +81,10 @@ describe('CitaService', () => {
 
   it('deberia consultar todas las citas pendientes', () => {
 
-    const citasPendientes = CitaMockService.crearListadoCitasPendientes();
+    const citasPendientes = citaMockService.crearListadoCitasPendientes();
     
     service.consultarTodasLasCitasPendientes().subscribe(response => {
-      expect(response.length).toBe(4);
+      expect(response.length).toBe(2);
       expect(response).toBe(citasPendientes);
     });
 
@@ -95,10 +95,10 @@ describe('CitaService', () => {
 
   it('deberia consultar todas las citas canceladas', () => {
 
-    const citasCanceladas = CitaMockService.crearListadoCitasPendientes();
+    const citasCanceladas = citaMockService.crearListadoCitasPendientes();
     
     service.consultarTodasLasCitasCanceladas().subscribe(response => {
-      expect(response.length).toBe(4);
+      expect(response.length).toBe(2);
       expect(response).toBe(citasCanceladas);
     });
 

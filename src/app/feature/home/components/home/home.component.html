@@ -1,14 +1,14 @@
 <div class="container-fluid">
     <div class="mt-3">
-        <h2 class="mb-3"><span class="bi-cash-coin"></span> TRM Dollar</h2>
+        <h2 class="mb-3">TRM Dollar</h2>
 
         <div class="container-fluid">
-            <fieldset class="fieldset-custom">
-                <legend id="legend-informacion-trm" class="legend-custom">TRM</legend>
+            <fieldset class="fieldset-trm">
+                <legend id="legend-info-trm" class="legend-trm">TRM</legend>
 
                 <div class="row mt-3">
                     <div class="mb-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                        <p id="parrago-informacion">TRM valido desde  <strong>{{trm.vigenciadesde | date }}</strong> hasta <strong>{{trm.vigenciahasta | date }}</strong> con un valor de: <strong>{{trm.unidad}} {{trm.valor | currency}}</strong> </p>
+                        <p id="informacionTRM">TRM valido desde  <strong>{{trm.vigenciadesde | date }}</strong> hasta <strong>{{trm.vigenciahasta | date }}</strong> con un valor de: <strong>{{trm.unidad}} {{trm.valor | currency}}</strong> </p>
                     </div>
                 </div>
             </fieldset>

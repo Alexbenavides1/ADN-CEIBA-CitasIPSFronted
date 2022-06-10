@@ -17,6 +17,7 @@ export class AsignarCitaComponent implements OnInit {
   listaAfiliados: Observable<Afiliado[]>;
   listaProcedimientos: Observable<Procedimiento[]>;
 
+
   citaForm: FormGroup;
 
   constructor(protected citaService: CitaService) { }

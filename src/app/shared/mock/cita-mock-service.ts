@@ -15,15 +15,15 @@ export class CitaMockService{
     crearListadoAfiliados(){
         return ([
             {
-                numero_identificacion:"1067000000",
+                numeroIdentificacion:"1067000000",
                 nombre: "Afiliado 1"
             },
             {
-                numero_identificacion:"1067111111",
+                numeroIdentificacion:"1067111111",
                 nombre: "Afiliado 2"
             },
             {
-                numero_identificacion:"1067333333",
+                numeroIdentificacion:"1067333333",
                 nombre: "Afiliado 3"
             }
         ]);
@@ -37,7 +37,7 @@ export class CitaMockService{
             },
             {
                 codigo: "808082",
-                nombre: "Proc 3"
+                nombre: "Proc 2"
             },
             {
                 codigo: "808083",
@@ -76,7 +76,7 @@ export class CitaMockService{
     crearListadoCitasCanceladas(){
         return ([
             {
-                id: 1,
+                id: 3,
                 numeroIdentificacion: "1067222222",
                 nombreAfiliado: "PRUEBA 2",
                 codigoProcedimiento: "808081",
@@ -87,7 +87,7 @@ export class CitaMockService{
                 estado: "CANCELADA"
             },
             {
-                id: 2,
+                id: 4,
                 numeroIdentificacion: "1067444444",
                 nombreAfiliado: "PRUEBA 4",
                 codigoProcedimiento: "808082",
@@ -109,11 +109,11 @@ export class CitaMockService{
       }
     
       crearResumenCitaPendiente() {
-        return new ResumenCita(10,'1067944244 - Alex Benavides',"902210 - PROC ESTETICO", '2022-05-15', 'T', 125000, 'PENDIENTE');
+        return new ResumenCita(10,'Alex Benavides','1067944244',"902210","PROC ESTETICO", '2022-05-15', 'T', 125000, 'PENDIENTE');
       }
 
       crearResumenCitaCancelada() {
-        return new ResumenCita(11,'1067944244 - Alex Benavides',"902210 - PROC ESTETICO", '2022-05-15', 'T', 125000, 'CANCELADA');
+        return new ResumenCita(10,'Alex Benavides','1067944244',"902210","PROC ESTETICO", '2022-05-15', 'T', 125000, 'CANCELADA');
       }
 
 }

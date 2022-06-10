@@ -5,6 +5,8 @@ import { CitaService } from '@cita/shared/service/cita.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
+import { of, throwError } from 'rxjs';
+import { CitaMockService } from '@shared/mock/cita-mock-service';
 
 
 describe('ListarCitasPendientesComponent', () => {
@@ -43,7 +45,7 @@ describe('ListarCitasPendientesComponent', () => {
   it('Consultar todas las citas pendientes', () => {
     spyOn(service, 'consultarTodasLasCitasPendientes').and.returnValue(of(citaMockService.crearListadoCitasPendientes()));
     component.ngOnInit();
-    expect(component.listaCitasPendientes.length).toBe(3);
+    expect(component.listaCitasPendientes.length).toBe(2);
   });
 
   it('Error al consultar todas las citas pendientes', () => {

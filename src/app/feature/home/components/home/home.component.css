@@ -1,6 +1,6 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
-.fieldset-custom {
+.fieldset-trm {
     border: 1px groove #ddd !important;
     padding: 0 1.4em 1.4em 1.4em !important;
     margin: 0 0 1.5em 0 !important;
@@ -8,7 +8,7 @@
             box-shadow:  0px 0px 0px 0px #000;
 }
 
-.legend-custom {
+.legend-trm {
     float: none !important;
     font-size: 1.2em !important;
     font-weight: 600 !important;

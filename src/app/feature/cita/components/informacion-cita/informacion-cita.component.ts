@@ -16,7 +16,10 @@ export class InformacionCitaComponent implements OnInit {
   @Input() color: string | undefined;
   @Input() icon: string | undefined;
 
-  constructor(protected citaService: CitaService,private route: Router) {
+  citaService: CitaService;
+  route: Router;
+
+  constructor() {
     this.citaResumen = new ResumenCita(0,'','','','','','',0,'');
    }
 

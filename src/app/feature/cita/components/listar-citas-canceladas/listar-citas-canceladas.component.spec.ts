@@ -5,6 +5,8 @@ import { CitaService } from '@cita/shared/service/cita.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpService } from '@core/services/http.service';
+import { CitaMockService } from '@shared/mock/cita-mock-service';
+import { of, throwError } from 'rxjs';
 
 
 describe('ListarCitasCanceladasComponent', () => {
@@ -42,7 +44,7 @@ describe('ListarCitasCanceladasComponent', () => {
   it('Consultar todas las citas canceladas', () => {
     spyOn(service, 'consultarTodasLasCitasCanceladas').and.returnValue(of(citaMockService.crearListadoCitasCanceladas()));
     component.ngOnInit();
-    expect(component.listaCitasCanceladas.length).toBe(3);
+    expect(component.listaCitasCanceladas.length).toBe(2);
   });
 
   it('Error al consultar todas las citas canceladas', () => {
