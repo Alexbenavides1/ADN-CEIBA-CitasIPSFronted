@@ -46,13 +46,12 @@ pipeline {
             }
         }
 
-        stage('Test end-to-end') {
+        /*stage('Test end-to-end') {
             steps{
                 echo "------------>Testing Protractor<------------"
-                //sh 'npm run e2e'
-                sh 'ng e2e'
+                sh 'npm run e2e'
             }
-        }
+        }*/
         
         stage('Static Code Analysis') {
             steps {
