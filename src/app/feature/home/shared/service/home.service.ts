@@ -6,7 +6,7 @@ import { RespuestaServicioTRM } from '../model/respuesta-servicio-trm';
 @Injectable()
 export class HomeService {
 
-  private urlData: string ='https://www.datos.gov.co/resource/32sa-8pi3.json'; 
+  private urlData ='https://www.datos.gov.co/resource/32sa-8pi3.json'; 
 
 
   constructor(protected http: HttpService) { }

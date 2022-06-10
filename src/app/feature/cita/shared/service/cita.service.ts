@@ -30,17 +30,18 @@ export class CitaService {
 
   public consultarTodasLasCitasPendientes() {
     return this.http.doGet<ResumenCita[]>(`${environment.endpoint}/cita/pendientes`, 
-    this.http.optsName('consultar todos las citas pendientes'));
+    this.http.optsName('consultar todas las citas pendientes'));
   }
 
   public consultarTodasLasCitasCanceladas() {
     return this.http.doGet<ResumenCita[]>(`${environment.endpoint}/cita/canceladas`, 
-    this.http.optsName('consultar todos las citas canceladas'));
+    this.http.optsName('consultar todas las citas canceladas'));
   }
 
   
   public cancelarCita(idCita: number) {
-    return this.http.doPost<any, void>(`${environment.endpoint}/cita/cancelar/${idCita}`, "", this.http.optsName('cancelar cita'));
+    return this.http.doPost<any, void>(`${environment.endpoint}/cita/cancelar/${idCita}`, '',
+    this.http.optsName('cancelar cita'));
   }
   
 }

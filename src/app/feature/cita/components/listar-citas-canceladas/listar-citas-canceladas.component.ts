@@ -27,7 +27,7 @@ export class ListarCitasCanceladasComponent implements OnInit {
           text: `Se ha producido un error. ${error.error.mensaje}`,
           showConfirmButton: true,
           timer: 3000
-        })
+        });
       }
     });
 
