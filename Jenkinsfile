@@ -17,7 +17,7 @@ pipeline {
     }
 
     tools {
-        jdk 'JDK8_Centos' //Verisión preinstalada en la Configuración del Master
+      nodejs "NodeJS14" //Verisión preinstalada en la Configuración del Master
     }
 
     //Aquí comienzan los “items” del Pipeline
@@ -25,13 +25,16 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo "------------>Checkout<------------"
+                checkout scm
             }
         }
         
         stage('NPM Install') {
             steps {
                 echo "------------>Installing<------------"
-                sh 'npm install'
+                withEnv(['NPM_CONFIG_LOGLEVEL=warn']) {
+                    sh 'npm install'
+                }
             }
         }
 
@@ -39,6 +42,7 @@ pipeline {
             steps {
                 echo "------------>Testing<------------"
                 sh 'npm run test'
+                //sh 'ng test --no-watch --code-coverage --browsers ChromeHeadless'
             }
         }
 
