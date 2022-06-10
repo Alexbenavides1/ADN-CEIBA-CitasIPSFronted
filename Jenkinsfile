@@ -17,7 +17,7 @@ pipeline {
     }
 
     tools {
-        jdk 'JDK17_Centos' //Verisión preinstalada en la Configuración del Master
+        jdk 'JDK8_Centos' //Verisión preinstalada en la Configuración del Master
     }
 
     //Aquí comienzan los “items” del Pipeline
