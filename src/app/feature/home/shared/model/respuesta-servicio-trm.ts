@@ -6,6 +6,6 @@ export class RespuestaServicioTRM {
 
     constructor(data: TRM) {
        this.data = data;
-	}
+    }
 
 }

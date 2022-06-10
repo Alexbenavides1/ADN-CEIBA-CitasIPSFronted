@@ -81,7 +81,7 @@ export class AsignarCitaComponent implements OnInit {
   }
 
 
-  private resetearCitaForm() {
+  resetearCitaForm() {
     this.citaForm.reset();
   }
 

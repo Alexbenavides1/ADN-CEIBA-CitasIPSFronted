@@ -8,6 +8,7 @@ import { CitaService } from '@cita/shared/service/cita.service';
 import { CitaMockService } from '@shared/mock/cita-mock-service';
 import { of, throwError } from 'rxjs';
 import { AsignarCitaComponent } from './asignar-cita.component';
+import Swal from 'sweetalert2';
 
 describe('AsignarCitaComponent', () => {
   let component: AsignarCitaComponent;
@@ -60,6 +61,12 @@ describe('AsignarCitaComponent', () => {
     
     component.asignarCita();
 
+    spyOn(Swal,'fire');
+    setTimeout(() => {
+      expect(Swal.isVisible()).toBeTruthy();
+      Swal.clickConfirm();
+    });
+
   });
 
   it('Asignar cita de forma exitosa', () => {
@@ -79,17 +86,33 @@ describe('AsignarCitaComponent', () => {
 
     component.asignarCita();
     
-
+    expect(component.citaForm.get('afiliado').value).toBe('1067000000');
     expect(component.citaForm.get('procedimiento').value).toBe('808081');
   });
 
   it('Crear cita exitosamente', () => {
     const comandoSolicitud : ComandoSolicitudAsignarCita = citaMockService.crearComandoSolicitudAsignarCita();
     
-    spyOn(service, 'guardarCita').withArgs(comandoSolicitud).and.returnValue(of(10));
+    spyOn(service, 'guardarCita').withArgs(comandoSolicitud).and.returnValue(of(1));
 
     component.guardarCita(comandoSolicitud);
+
+    expect(component.citaForm.get('afiliado').value).toBe('');
+    expect(component.citaForm.get('procedimiento').value).toBe('');
+
     
   });
+
+  it('Debe limpiar todos los campos del formulario', () => {
+
+    component.resetearCitaForm();
+
+    expect(component.citaForm.get('afiliado').value).toBe(null);
+    expect(component.citaForm.get('procedimiento').value).toBe(null);
+    expect(component.citaForm.get('fecha').value).toBe(null);
+    expect(component.citaForm.get('jornada').value).toBe(null);
+    
+  });
+
 
 });

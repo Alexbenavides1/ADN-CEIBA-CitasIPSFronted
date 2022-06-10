@@ -46,8 +46,7 @@ describe('HomeComponent', () => {
     
     component.obtenerTRM();
   
-   // expect(component.trm.vigenciadesde).toEqual(respuestaServicioTRM.data.vigenciadesde);
-   // expect(component.trm.vigenciahasta).toEqual(respuestaServicioTRM.data.vigenciahasta);
+    expect('COP').toEqual(respuestaServicioTRM.data.unidad);
 
   });
 });

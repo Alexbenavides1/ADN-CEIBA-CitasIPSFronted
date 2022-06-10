@@ -8,7 +8,7 @@ export class CitaMockService{
             identificacionAfiliado: "1067333333",
             codigoProcedimiento: "112233",
             fecha: "2022-06-10",
-            jornadaCita: "A"
+            jornadaCita: "M"
         };
     }
 

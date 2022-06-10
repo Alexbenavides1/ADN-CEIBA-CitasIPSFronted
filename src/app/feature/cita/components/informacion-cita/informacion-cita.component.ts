@@ -69,8 +69,7 @@ export class InformacionCitaComponent implements OnInit {
 
       }
       
-    });
-    
+    });    
     
   }
 

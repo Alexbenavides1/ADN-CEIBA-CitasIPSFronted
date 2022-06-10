@@ -37,7 +37,6 @@ export class CitaService {
     return this.http.doGet<ResumenCita[]>(`${environment.endpoint}/cita/canceladas`, 
     this.http.optsName('consultar todas las citas canceladas'));
   }
-
   
   public cancelarCita(idCita: number) {
     return this.http.doPost<any, void>(`${environment.endpoint}/cita/cancelar/${idCita}`, '',
