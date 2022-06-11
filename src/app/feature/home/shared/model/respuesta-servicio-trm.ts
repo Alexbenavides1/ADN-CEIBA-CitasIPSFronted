@@ -2,10 +2,10 @@ import { TRM } from './trm';
 
 export class RespuestaServicioTRM {
 
-    data: TRM;
+  data: TRM;
 
-    constructor(data: TRM) {
-       this.data = data;
-    }
+  constructor(data: TRM) {
+    this.data = data;
+  }
 
 }

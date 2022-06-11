@@ -159,7 +159,8 @@
         ],
         "@typescript-eslint/type-annotation-spacing": "error",
         "@typescript-eslint/typedef": "off",
-        "@typescript-eslint/unified-signatures": "error"
+        "@typescript-eslint/unified-signatures": "error",
+        "@angular-eslint/no-empty-lifecycle-method": "off"
       }
     },
     {

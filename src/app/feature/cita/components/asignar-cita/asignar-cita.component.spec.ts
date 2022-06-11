@@ -13,8 +13,8 @@ import Swal from 'sweetalert2';
 describe('AsignarCitaComponent', () => {
   let component: AsignarCitaComponent;
   let fixture: ComponentFixture<AsignarCitaComponent>;
-  let service : CitaService;
-  const citaMockService : CitaMockService = new CitaMockService();
+  let service: CitaService;
+  const citaMockService: CitaMockService = new CitaMockService();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -28,8 +28,7 @@ describe('AsignarCitaComponent', () => {
         CitaService,
         HttpService
       ]
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -76,10 +75,10 @@ describe('AsignarCitaComponent', () => {
     component.listaProcedimientos = of(citaMockService.crearListadoProcedimientos());
 
     
-    component.citaForm.controls.afiliado.setValue("1067000000");
+    component.citaForm.controls.afiliado.setValue('1067000000');
     component.citaForm.controls.procedimiento.setValue('808081');
     component.citaForm.controls.jornada.setValue('M');
-    component.citaForm.controls.fecha.setValue("2022-06-13");
+    component.citaForm.controls.fecha.setValue('2022-06-13');
 
 
     expect(component.citaForm.valid).toBeTruthy();
@@ -91,7 +90,7 @@ describe('AsignarCitaComponent', () => {
   });
 
   it('Crear cita exitosamente', () => {
-    const comandoSolicitud : ComandoSolicitudAsignarCita = citaMockService.crearComandoSolicitudAsignarCita();
+    const comandoSolicitud: ComandoSolicitudAsignarCita = citaMockService.crearComandoSolicitudAsignarCita();
     
     spyOn(service, 'guardarCita').withArgs(comandoSolicitud).and.returnValue(of(1));
 

@@ -20,7 +20,7 @@ import { HomeModule } from '@home/home.module';
     HomeModule,
     CitaModule,
     CoreModule
-      ],
+  ],
   providers: [CookieService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

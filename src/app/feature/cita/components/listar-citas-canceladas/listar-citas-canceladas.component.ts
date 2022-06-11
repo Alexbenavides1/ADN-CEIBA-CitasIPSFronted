@@ -10,9 +10,9 @@ import Swal from 'sweetalert2';
 })
 export class ListarCitasCanceladasComponent implements OnInit {
 
-  listaCitasCanceladas : ResumenCita[];
+  listaCitasCanceladas: ResumenCita[];
 
-  constructor(private citaService : CitaService) { }
+  constructor(private citaService: CitaService) { }
 
   ngOnInit(): void {
 

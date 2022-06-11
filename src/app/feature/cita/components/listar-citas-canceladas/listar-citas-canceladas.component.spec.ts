@@ -26,8 +26,7 @@ describe('ListarCitasCanceladasComponent', () => {
         CitaService,
         HttpService
       ]
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -37,7 +37,7 @@ export class AsignarCitaComponent implements OnInit {
     this.citaService.guardarCita(comandoSolicitudAsignarCita).subscribe(
       {
         next: response => {
-          if (response['valor'] !== undefined) {
+          if (response !== undefined) {
             Swal.fire({
               icon: 'success',
               title: 'Realizado',
@@ -48,19 +48,21 @@ export class AsignarCitaComponent implements OnInit {
     
             this.resetearCitaForm();
           }
+        },
+        error: error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: `Se ha producido un error. ${error.error.mensaje}`,
+            showConfirmButton: true,
+            timer: 5000
+          });        
         }
-      ,
-       error: error => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: `Se ha producido un error. ${error.error.mensaje}`,
-          showConfirmButton: true,
-          timer: 5000
-        });        
-      }
-    }
-    );
+      });
+  }
+
+  resetearCitaForm() {
+    this.citaForm.reset();
   }
 
   private construirFormularioCita() {
@@ -81,8 +83,6 @@ export class AsignarCitaComponent implements OnInit {
   }
 
 
-  resetearCitaForm() {
-    this.citaForm.reset();
-  }
+  
 
 }

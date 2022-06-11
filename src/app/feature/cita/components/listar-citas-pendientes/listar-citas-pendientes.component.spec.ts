@@ -27,8 +27,7 @@ describe('ListarCitasPendientesComponent', () => {
         CitaService,
         HttpService
       ]
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

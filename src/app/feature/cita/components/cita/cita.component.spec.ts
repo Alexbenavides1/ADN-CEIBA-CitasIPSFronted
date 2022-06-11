@@ -17,8 +17,7 @@ describe('CitaComponent', () => {
         HttpClientModule,
         RouterTestingModule
       ]
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

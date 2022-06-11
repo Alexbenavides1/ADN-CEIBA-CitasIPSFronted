@@ -8,7 +8,7 @@
     </li>
     <li class="list-group-item align-items-center">
         <p class="mb-1"><span class="bi-calendar-check-fill"></span> {{ citaResumen.fecha | date }}</p>
-        <p class="mb-1"><strong>Jornada: </strong> {{ (citaResumen.jornada=="M" ? "Manaña" : "Tarde") }}</p>
+        <p class="mb-1"><strong>Jornada: </strong> {{ (citaResumen.jornada==="M" ? "Manaña" : "Tarde") }}</p>
         <p class="mb-1"><strong>Afiliado: </strong> {{citaResumen.numeroIdentificacion+' - '+citaResumen.nombreAfiliado }}</p>
         <p class="mb-1"><strong>Procedimiento: </strong> {{ citaResumen.codigoProcedimiento+' - '+citaResumen.nombreProcedimiento }}</p>
         
@@ -17,7 +17,7 @@
     <li class="list-group-item align-items-center">
         <p class="mb-2"><strong>Valor del copago: </strong> {{ citaResumen.valorCopago | currency }}</p>
     </li>
-    <li *ngIf="estadoCita == 'PENDIENTE'" class="list-group-item align-items-center">
+    <li *ngIf="estadoCita === 'PENDIENTE'" class="list-group-item align-items-center">
         <button id="btn-cancelar-cita" class="badge bg-danger" (click)="cancelarCita(citaResumen.id)">
             <i class="bi-x-octagon-fill" aria-hidden="true"></i> Cancelar
         </button>

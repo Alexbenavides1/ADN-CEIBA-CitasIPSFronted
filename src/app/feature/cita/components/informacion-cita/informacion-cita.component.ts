@@ -21,7 +21,7 @@ export class InformacionCitaComponent implements OnInit {
 
   constructor() {
     this.citaResumen = new ResumenCita(0,'','','','','','',0,'');
-   }
+  }
 
   ngOnInit(): void {
     this.color=(this.color === undefined ? 'danger' : this.color);

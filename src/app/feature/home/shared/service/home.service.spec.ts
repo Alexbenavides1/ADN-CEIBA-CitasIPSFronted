@@ -9,7 +9,7 @@ describe('HomeService', () => {
   let httpMock: HttpTestingController;
   const homeMockService: HomeMockService = new HomeMockService();
 
-  const apiEndpointConsultarTRM = `https://www.datos.gov.co/resource/32sa-8pi3.json?vigenciadesde=2022-06-09`;
+  const apiEndpointConsultarTRM = 'https://www.datos.gov.co/resource/32sa-8pi3.json?vigenciadesde=2022-06-09';
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({

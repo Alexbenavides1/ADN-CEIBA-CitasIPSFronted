@@ -12,7 +12,7 @@ export class HomeService {
   constructor(protected http: HttpService) { }
 
   public consultarTRM(fechaTRM: string) {
-    let options: Options = {
+    const options: Options = {
       params: new HttpParams().set('vigenciadesde', fechaTRM)
     };
     return this.http.doGet<RespuestaServicioTRM>(`${this.urlData}`, options);

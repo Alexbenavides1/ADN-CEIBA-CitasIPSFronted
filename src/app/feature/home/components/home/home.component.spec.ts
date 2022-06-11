@@ -21,8 +21,7 @@ describe('HomeComponent', () => {
         RouterTestingModule,
       ],
       providers: [HomeService, HttpService]
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -39,8 +38,8 @@ describe('HomeComponent', () => {
 
   it('Obtener TRM', () => {
     
-    let fechaActualTRM = component.obtenerFechaActualTRM();
-    let respuestaServicioTRM = homeMockService.crearRespuestaAPITRM();
+    const fechaActualTRM = component.obtenerFechaActualTRM();
+    const respuestaServicioTRM = homeMockService.crearRespuestaAPITRM();
 
     spyOn(service, 'consultarTRM').withArgs(fechaActualTRM).and.returnValue(of(respuestaServicioTRM));
     

@@ -15,32 +15,32 @@ export class CitaService {
 
   public guardarCita(comandoSolicitudAsignarCita: ComandoSolicitudAsignarCita){
     return this.http.doPost<ComandoSolicitudAsignarCita,number>(`${environment.endpoint}/cita`, comandoSolicitudAsignarCita,
-    this.http.optsName('crear cita'));
+      this.http.optsName('crear cita'));
   }
 
   public consultarTodosLosAfiliados() {
     return this.http.doGet<Afiliado[]>(`${environment.endpoint}/afiliado`, 
-    this.http.optsName('consultar todos los afiliados'));
+      this.http.optsName('consultar todos los afiliados'));
   }
 
   public consultarTodosLosProcedimientos() {
     return this.http.doGet<Procedimiento[]>(`${environment.endpoint}/procedimiento`, 
-    this.http.optsName('consultar todos los procedimientos'));
+      this.http.optsName('consultar todos los procedimientos'));
   }
 
   public consultarTodasLasCitasPendientes() {
     return this.http.doGet<ResumenCita[]>(`${environment.endpoint}/cita/pendientes`, 
-    this.http.optsName('consultar todas las citas pendientes'));
+      this.http.optsName('consultar todas las citas pendientes'));
   }
 
   public consultarTodasLasCitasCanceladas() {
     return this.http.doGet<ResumenCita[]>(`${environment.endpoint}/cita/canceladas`, 
-    this.http.optsName('consultar todas las citas canceladas'));
+      this.http.optsName('consultar todas las citas canceladas'));
   }
   
   public cancelarCita(idCita: number) {
     return this.http.doPost<any, void>(`${environment.endpoint}/cita/cancelar/${idCita}`, '',
-    this.http.optsName('cancelar cita'));
+      this.http.optsName('cancelar cita'));
   }
   
 }

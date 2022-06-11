@@ -10,9 +10,9 @@ import Swal from 'sweetalert2';
 })
 export class ListarCitasPendientesComponent implements OnInit {
 
-  listaCitasPendientes : ResumenCita[];
+  listaCitasPendientes: ResumenCita[];
 
-  constructor(private citaService : CitaService) { }
+  constructor(private citaService: CitaService) { }
 
   ngOnInit(): void {
 

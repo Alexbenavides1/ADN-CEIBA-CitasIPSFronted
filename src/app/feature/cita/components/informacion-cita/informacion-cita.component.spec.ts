@@ -11,7 +11,7 @@ describe('InformacionCitaComponent', () => {
   let component: InformacionCitaComponent;
   let fixture: ComponentFixture<InformacionCitaComponent>;
   const citaMockService: CitaMockService = new CitaMockService();
-  let service : CitaService;
+  let service: CitaService;
 
 
   beforeEach(async () => {
@@ -25,8 +25,7 @@ describe('InformacionCitaComponent', () => {
         CitaService,
         HttpService
       ]
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

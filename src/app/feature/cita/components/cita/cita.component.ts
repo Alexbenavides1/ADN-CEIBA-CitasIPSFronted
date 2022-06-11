@@ -7,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CitaComponent implements OnInit {
 
-  tituloApp : string;
+  tituloApp: string;
 
   constructor() { 
     this.tituloApp='Citas IPS';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // do nothing
+  }
 
 }
