@@ -43,9 +43,7 @@ export class InformacionCitaComponent implements OnInit {
                 text: 'La cita se ha cancelado exitosamente.',
                 showConfirmButton: true,
                 timer: 4000
-              }); 
-              
-              //this.route.navigateByUrl('listar/canceladas');
+              });               
             }
             
           },

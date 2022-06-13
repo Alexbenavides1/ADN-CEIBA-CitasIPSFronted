@@ -46,10 +46,9 @@ describe('InformacionCitaComponent', () => {
     expect(component).toBeTruthy();
   });
 
-   it('deberia cancelar la cita', () => {
-
-     spyOn(service,'cancelarCita').withArgs(2).and.returnValue(of(1));
-     spyOn(Swal,'clickConfirm').and.callFake(() => {
+  it('deberia cancelar la cita', () => {
+    spyOn(service,'cancelarCita').withArgs(2).and.returnValue(of(1));
+    spyOn(Swal,'clickConfirm').and.callFake(() => {
       service.cancelarCita(2).subscribe({
         next: response => {
           if (response > 0) {
@@ -64,20 +63,20 @@ describe('InformacionCitaComponent', () => {
           }
         }
       });
-     });
+    });
 
-     component.cancelarCita(2);
+    component.cancelarCita(2);
        
-     expect(Swal.isVisible()).toBeTruthy();
-     expect(Swal.getTitle().textContent).toEqual('¿Esta seguro(a) de cancelar la cita?');
+    expect(Swal.isVisible()).toBeTruthy();
+    expect(Swal.getTitle().textContent).toEqual('¿Esta seguro(a) de cancelar la cita?');
 
-     Swal.clickConfirm();    
+    Swal.clickConfirm();    
 
-     expect(Swal.clickConfirm).toHaveBeenCalled();
-     expect(service.cancelarCita).toHaveBeenCalled();
+    expect(Swal.clickConfirm).toHaveBeenCalled();
+    expect(service.cancelarCita).toHaveBeenCalled();
 
 
-   });
+  });
 
   it('deberia mostrar error al cancelar la cita', () => {
 
