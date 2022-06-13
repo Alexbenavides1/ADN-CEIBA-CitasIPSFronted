@@ -1,7 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TRM } from '@home/shared/model/trm';
-import { HomeService } from '../../shared/service/home.service';
+import { HomeService } from '@home/shared/service/home.service';
 
 @Component({
   selector: 'app-home',

@@ -7,7 +7,7 @@ import { ComandoSolicitudAsignarCita } from '@cita/shared/model/comando-solicitu
 import { CitaService } from '@cita/shared/service/cita.service';
 import { CitaMockService } from '@shared/mock/cita-mock-service';
 import { of, throwError } from 'rxjs';
-import { AsignarCitaComponent } from './asignar-cita.component';
+import { AsignarCitaComponent } from '@cita/components/asignar-cita/asignar-cita.component';
 import Swal from 'sweetalert2';
 
 describe('AsignarCitaComponent', () => {

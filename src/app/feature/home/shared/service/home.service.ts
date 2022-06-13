@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Options, HttpService } from '@core-service/http.service';
 import { HttpParams } from '@angular/common/http';
-import { RespuestaServicioTRM } from '../model/respuesta-servicio-trm';
+import { RespuestaServicioTRM } from '@home/shared/model/respuesta-servicio-trm';
 
 @Injectable()
 export class HomeService {

@@ -2,8 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
-import { CitaComponent } from './cita.component';
+import { CitaComponent } from '@cita/components/cita/cita.component';
 
 describe('CitaComponent', () => {
   let component: CitaComponent;

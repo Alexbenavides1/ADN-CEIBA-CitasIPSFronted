@@ -31,21 +31,20 @@ export class CitaPage {
     }
 
 
-    clickCancelarCita() {
-        return this.btnCancelarCita.click();
+    async clickCancelarCita() {
+        await this.btnCancelarCita.click();
     }
 
-    clickGuardarCita() {
-        return this.btnGuardarCita.click();
+    async clickGuardarCita() {
+        await this.btnGuardarCita.click();
     }
 
-
-    clickOkSuccessAlerta() {
-        return this.btnOkSuccessAlerta.click();
+    async clickOkSuccessAlerta() {
+        await this.btnOkSuccessAlerta.click();
     }
 
-    clickOkSuccessAlertaByElementName(selectorName: string) {
-        return element(by.className(selectorName)).click();
+    async clickOkSuccessAlertaByElementName(selectorName: string) {
+        await element(by.className(selectorName)).click();
     }
     
     

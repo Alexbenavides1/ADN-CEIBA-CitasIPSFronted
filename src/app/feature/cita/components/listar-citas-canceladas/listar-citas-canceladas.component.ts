@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ResumenCita } from '../../shared/model/resumen-cita';
-import { CitaService } from '../../shared/service/cita.service';
+import { ResumenCita } from '@cita/shared/model/resumen-cita';
+import { CitaService } from '@cita/shared/service/cita.service';
 import Swal from 'sweetalert2';
 
 @Component({

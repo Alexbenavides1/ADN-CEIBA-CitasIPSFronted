@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '@core/services/http.service';
 import { environment } from 'src/environments/environment';
-import { Afiliado } from '../model/afiliado';
-import { Procedimiento } from '../model/procedimiento';
-import { ResumenCita } from '../model/resumen-cita';
-import { ComandoSolicitudAsignarCita } from '../model/comando-solicitud-asignar-cita';
+import { Afiliado } from '@cita/shared/model/afiliado';
+import { Procedimiento } from '@cita/shared/model/procedimiento';
+import { ResumenCita } from '@cita/shared/model/resumen-cita';
+import { ComandoSolicitudAsignarCita } from '@cita/shared/model/comando-solicitud-asignar-cita';
 
 @Injectable({
   providedIn: 'root'

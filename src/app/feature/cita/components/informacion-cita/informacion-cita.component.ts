@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ResumenCita } from '@cita/shared/model/resumen-cita';
 import { CitaService } from '@cita/shared/service/cita.service';
 import Swal from 'sweetalert2';
-//import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-informacion-cita',
