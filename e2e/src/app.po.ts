@@ -5,9 +5,9 @@ export class AppPage {
     return browser.get(browser.baseUrl) as Promise<any>;
   }
 
-  getTitleText() {
-    return element(by.css('app-root h1')).getText() as Promise<string>;
-  }
+  // getTitleText() {
+  //   return element(by.css('app-root h1')).getText() as Promise<string>;
+  // }
 
   getTextBySelectorComponentAndTag(selectorComponent: string, tag: string) {
     return element(by.css(`${selectorComponent} ${tag}`)).getText() as Promise<string>;

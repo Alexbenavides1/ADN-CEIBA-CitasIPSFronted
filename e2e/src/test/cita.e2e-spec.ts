@@ -8,9 +8,9 @@ describe('Page Cita', () => {
     let navBar: NavbarPage;
     let cita: CitaPage;
 
-    const IDENTIFICACION_AFILIADO = '1067777777';
+    const IDENTIFICACION_AFILIADO = '1067000000';
     const CODIGO_PROCEDIMIENTO = '808085';
-    const FECHA = '2022-06-13';
+    const FECHA = '2022-06-16';
     const JORNADA = 'T';
 
     beforeEach(() => {
@@ -34,32 +34,24 @@ describe('Page Cita', () => {
         });
     });
 
-    it('Deberia asignar una cita', async () => {
-        
+    it('Deberia asignar una cita', async () => {        
         
         cita.clickBotonAsignarCita();
-        expect(page.getTextBySelectorComponentAndTag('app-asignar-cita', 'h2')).toEqual('Asignar cita');
 
-        expect(page.getTextBySelectorComponentAndTag('app-asignar-cita', '#legend-informacion-afiliado')).toEqual('Datos de la cita');
         await cita.seleccionarAfiliado(IDENTIFICACION_AFILIADO);
         await cita.seleccionarProcedimiento(CODIGO_PROCEDIMIENTO);
         cita.ingresarFecha(FECHA);
         cita.seleccionarJornada(JORNADA);
      
-
-
         await cita.irAElemento('#btn-asignar-cita');
-        await browser.sleep(2000);
-        await cita.clickGuardarCita();
 
+        await cita.clickGuardarCita();
+        
     });
 
     it('Deberia inhabilitar boton de guardar porque no se ha ingresado toda la informacion', async () => {
               
         cita.clickBotonAsignarCita();
-        expect(page.getTextBySelectorComponentAndTag('app-asignar-cita', 'h2')).toEqual('Asignar cita');
-
-        expect(page.getTextBySelectorComponentAndTag('app-asignar-cita', '#legend-informacion-afiliado')).toEqual('Datos de la cita');
        
         await cita.seleccionarAfiliado(IDENTIFICACION_AFILIADO);
         await cita.seleccionarProcedimiento(CODIGO_PROCEDIMIENTO);
@@ -71,6 +63,7 @@ describe('Page Cita', () => {
     it('Deberia listar las citas pendientes', async () => {
         
         cita.clickBotonListarCitasPendientes();
+
         expect(page.getTextBySelectorComponentAndTag('app-listar-citas-pendientes', 'h2')).toEqual('Citas pendientes');
 
         expect(page.getTextBySelectorComponentAndTag('app-listar-citas-pendientes', '#legend-citas-pendientes')).toEqual('Listado de citas');
@@ -81,8 +74,8 @@ describe('Page Cita', () => {
     it('Deberia listar las citas canceladas', async () => {
         
         cita.clickBotonListarCitasCanceladas();
-        expect(page.getTextBySelectorComponentAndTag('app-listar-citas-canceladas', 'h2')).toEqual('Citas canceladas');
 
+        expect(page.getTextBySelectorComponentAndTag('app-listar-citas-canceladas', 'h2')).toEqual('Citas canceladas');
         expect(page.getTextBySelectorComponentAndTag('app-listar-citas-canceladas', '#legend-citas-canceladas')).toEqual('Listado de citas');
        
     });

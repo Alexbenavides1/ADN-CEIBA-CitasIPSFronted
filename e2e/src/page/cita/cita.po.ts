@@ -48,8 +48,6 @@ export class CitaPage {
     }
     
     
-
-
     async seleccionarAfiliado(optionText: string) {
         await this.selectAfiliado.click();
         await element(by.cssContainingText('option', optionText)).click();
@@ -72,12 +70,15 @@ export class CitaPage {
     }
 
 
-
     async getValueInput(idSelector: string) {
         return element(by.id(idSelector)).getAttribute('value');
     }
 
-    getAlertaExitosa() {
+    async getMensajeGuardado(){
+        return element(by.id('swal2-title')).getText() as Promise<string>;
+    }
+
+    async getAlertaExitosa() {
         return this.successAlerta;
     }
 
@@ -85,8 +86,6 @@ export class CitaPage {
         const elemento = await browser.findElement(by.css(selectorElemento));
         await browser.actions().mouseMove(elemento).perform();
     }
-
-
 
     
 }

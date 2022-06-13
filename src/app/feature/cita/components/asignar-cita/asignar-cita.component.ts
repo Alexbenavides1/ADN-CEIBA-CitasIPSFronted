@@ -43,7 +43,7 @@ export class AsignarCitaComponent implements OnInit {
               title: 'Realizado',
               text: 'La cita se ha asignado exitosamente.',
               showConfirmButton: true,
-              timer: 4000
+              timer: 8000
             });
     
             this.resetearCitaForm();
