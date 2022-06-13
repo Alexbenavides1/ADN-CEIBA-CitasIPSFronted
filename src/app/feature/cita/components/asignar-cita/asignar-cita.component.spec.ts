@@ -38,14 +38,22 @@ describe('AsignarCitaComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Deberia ser creado', () => {
     expect(component).toBeTruthy();
   });
 
   it('Inicializar componente', () => {
+    
     spyOn(service, 'consultarTodosLosAfiliados').and.returnValue(of(citaMockService.crearListadoAfiliados()));
+    spyOn(service, 'consultarTodosLosProcedimientos').and.returnValue(of(citaMockService.crearListadoProcedimientos()));
+    
     component.ngOnInit();
+    
     component.listaAfiliados.subscribe(response => {
+      expect(response.length).toBe(3);
+    });
+
+    component.listaProcedimientos.subscribe(response => {
       expect(response.length).toBe(3);
     });
 
@@ -53,7 +61,7 @@ describe('AsignarCitaComponent', () => {
 
 
 
-  it('Error al asignar cita', () => {
+  it('deberia dar error al guardar cita', () => {
     const errorResponse = citaMockService.crearHttpRespuestaError501();
     
     spyOn(service, 'guardarCita').and.returnValue(throwError(errorResponse));
@@ -61,15 +69,16 @@ describe('AsignarCitaComponent', () => {
     component.asignarCita();
 
     spyOn(Swal,'fire');
-    setTimeout(() => {
-      expect(Swal.isVisible()).toBeTruthy();
-      Swal.clickConfirm();
-    });
+
+    Swal.fire();
+
+    expect(Swal.isVisible()).toBeTruthy();
+    expect(service.guardarCita).toHaveBeenCalled();
+    expect(Swal.fire).toHaveBeenCalled();
 
   });
 
-  it('Asignar cita de forma exitosa', () => {
-    
+  it('deberia asignar los datos de la cita', () => {    
  
     component.listaAfiliados = of(citaMockService.crearListadoAfiliados());
     component.listaProcedimientos = of(citaMockService.crearListadoProcedimientos());
@@ -80,24 +89,29 @@ describe('AsignarCitaComponent', () => {
     component.citaForm.controls.jornada.setValue('M');
     component.citaForm.controls.fecha.setValue('2022-06-13');
 
-
     expect(component.citaForm.valid).toBeTruthy();
 
     component.asignarCita();
     
     expect(component.citaForm.get('afiliado').value).toBe('1067000000');
     expect(component.citaForm.get('procedimiento').value).toBe('808081');
+    expect(component.citaForm.get('fecha').value).toBe('2022-06-13');
+    expect(component.citaForm.get('jornada').value).toBe('M');
+
   });
 
-  it('Crear cita exitosamente', () => {
+  it('deberia crear cita exitosamente', () => {
+    
     const comandoSolicitud: ComandoSolicitudAsignarCita = citaMockService.crearComandoSolicitudAsignarCita();
     
     spyOn(service, 'guardarCita').withArgs(comandoSolicitud).and.returnValue(of(1));
 
     component.guardarCita(comandoSolicitud);
 
-    expect(component.citaForm.get('afiliado').value).toBe('');
-    expect(component.citaForm.get('procedimiento').value).toBe('');
+    expect(component.citaForm.get('afiliado').value).toBe(null);
+    expect(component.citaForm.get('procedimiento').value).toBe(null);
+    expect(component.citaForm.get('fecha').value).toBe(null);
+    expect(component.citaForm.get('jornada').value).toBe(null);
 
     
   });

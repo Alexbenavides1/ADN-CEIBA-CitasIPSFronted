@@ -6,17 +6,19 @@ import { CitaService } from './cita.service';
 import { CitaMockService } from '../../../../shared/mock/cita-mock-service';
 import { HttpResponse } from '@angular/common/http';
 
+
 describe('CitaService', () => {
   let service: CitaService;
   let httpMock: HttpTestingController;
   const citaMockService: CitaMockService = new CitaMockService();
+
 
   const apiEndPointCrearCita = `${environment.endpoint}/cita`;
   const apiEndPointConsultarTodosLosAfiliados = `${environment.endpoint}/afiliado`;
   const apiEndPointConsultarTodosLosProcedimientos = `${environment.endpoint}/procedimiento`;
   const apiEndPointConsultarCitasPendientes = `${environment.endpoint}/cita/pendientes`;
   const apiEndPointConsultarCitasCanceladas = `${environment.endpoint}/cita/canceladas`;
-
+  const apiEndPointCancelarCita = `${environment.endpoint}/cita/cancelar/1`;
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({
@@ -35,7 +37,7 @@ describe('CitaService', () => {
     httpMock.verify();
   });
 
-  it('should be created', () => {
+  it('debe crearse correctamente', () => {
     expect(service).toBeTruthy();
   });
 
@@ -43,12 +45,12 @@ describe('CitaService', () => {
     const cita = citaMockService.crearComandoSolicitudAsignarCita();
     
     service.guardarCita(cita).subscribe((response) => {
-      expect(response).toBe(10);
+      expect(response).toBe(1);
     });
 
     const req = httpMock.expectOne(apiEndPointCrearCita);
     expect(req.request.method).toBe('POST');
-    req.event(new HttpResponse<number>({ body: 10 }));
+    req.event(new HttpResponse<number>({ body: 1 }));
   });
 
   it('deberia consultar todos los afiliados', () => {
@@ -105,6 +107,17 @@ describe('CitaService', () => {
     const req = httpMock.expectOne(apiEndPointConsultarCitasCanceladas);
     expect(req.request.method).toBe('GET');
     req.flush(citasCanceladas);
+  });
+
+  it('deberia cancelar una cita', () => {
+
+    service.cancelarCita(1).subscribe((response) => {
+      expect(response).toBe(1);
+    });
+
+    const req = httpMock.expectOne(apiEndPointCancelarCita);
+    expect(req.request.method).toBe('POST');
+    req.event(new HttpResponse<number>({ body: 1 }));
   });
 
 

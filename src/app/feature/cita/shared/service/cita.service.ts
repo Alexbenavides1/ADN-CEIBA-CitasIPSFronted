@@ -39,7 +39,7 @@ export class CitaService {
   }
   
   public cancelarCita(idCita: number) {
-    return this.http.doPost<any, void>(`${environment.endpoint}/cita/cancelar/${idCita}`, '',
+    return this.http.doPost<null, number>(`${environment.endpoint}/cita/cancelar/${idCita}`, null,
       this.http.optsName('cancelar cita'));
   }
   

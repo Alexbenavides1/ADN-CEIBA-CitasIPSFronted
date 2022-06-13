@@ -7,7 +7,7 @@ export class CitaMockService{
     return {
       identificacionAfiliado: '1067333333',
       codigoProcedimiento: '112233',
-      fecha: '2022-06-10',
+      fecha: '2022-06-13',
       jornadaCita: 'M'
     };
   }

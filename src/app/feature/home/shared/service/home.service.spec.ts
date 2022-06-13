@@ -2,14 +2,13 @@ import { HttpClientTestingModule,HttpTestingController } from '@angular/common/h
 import { TestBed } from '@angular/core/testing';
 import { HttpService } from '@core/services/http.service';
 import { HomeMockService } from '@shared/mock/home-mock-service';
-import { HomeService } from './home.service';
+import { HomeService } from '@home/shared/service/home.service';
 
 describe('HomeService', () => {
   let service: HomeService;
   let httpMock: HttpTestingController;
   const homeMockService: HomeMockService = new HomeMockService();
-
-  const apiEndpointConsultarTRM = 'https://www.datos.gov.co/resource/32sa-8pi3.json?vigenciadesde=2022-06-09';
+  
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({
@@ -33,18 +32,21 @@ describe('HomeService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('deberia consultar el TRM', () => {
+  it('deberia consultar TRM', () => {
 
     const fechaTRM = '2022-06-09';
     const respuestaTRM = homeMockService.crearRespuestaAPITRM();
+    const apiEndpointConsultarTRM = 'https://www.datos.gov.co/resource/32sa-8pi3.json?vigenciadesde=2022-06-09';
     
-    service.consultarTRM(fechaTRM).subscribe(response => {    
+    service.consultarTRM(fechaTRM).subscribe(response => {
       expect(response).toBe(respuestaTRM);
     });
 
     const req = httpMock.expectOne(apiEndpointConsultarTRM);
+    
     expect(req.request.method).toBe('GET');
-    req.flush(respuestaTRM);
+
+    
   });
 
 });

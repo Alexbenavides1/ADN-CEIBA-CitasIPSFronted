@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ResumenCita } from '../../shared/model/resumen-cita';
+import { ResumenCita } from '@cita/shared/model/resumen-cita';
 import { CitaService } from '@cita/shared/service/cita.service';
 import Swal from 'sweetalert2';
-import {Router} from '@angular/router';
+//import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-informacion-cita',
@@ -16,19 +16,13 @@ export class InformacionCitaComponent implements OnInit {
   @Input() color: string | undefined;
   @Input() icon: string | undefined;
 
-  citaService: CitaService;
-  route: Router;
-
-  constructor() {
-    this.citaResumen = new ResumenCita(0,'','','','','','',0,'');
+  constructor(protected citaService: CitaService) {
+    this.citaResumen = new ResumenCita(0,'','','','','','',0,'');   
   }
 
-  ngOnInit(): void {
-    this.color=(this.color === undefined ? 'danger' : this.color);
-  }
+  ngOnInit(): void {}
 
-  cancelarCita(idCita: number){
-
+  cancelarCita(idCita: number): void {    
     Swal.fire({
       title: '¿Esta seguro(a) de cancelar la cita?',
       text: 'Esta acción no se puede revertir',
@@ -38,23 +32,22 @@ export class InformacionCitaComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Si, cancelar',
       cancelButtonText: 'Cerrar',
-    }).then((result) => {
-
-      if (result.isConfirmed) {
-        
+    }).then((result) => {      
+      if (result.isConfirmed) {        
         this.citaService.cancelarCita(idCita).subscribe({
-          next: response => {
-            if (response !== undefined) {
+          next: response => {                       
+            if (response > 0) {
               Swal.fire({
                 icon: 'success',
                 title: 'Realizado',
                 text: 'La cita se ha cancelado exitosamente.',
                 showConfirmButton: true,
                 timer: 4000
-              });
+              }); 
               
-              this.route.navigateByUrl('listar/canceladas');
+              //this.route.navigateByUrl('listar/canceladas');
             }
+            
           },
           error: error => {
             Swal.fire({

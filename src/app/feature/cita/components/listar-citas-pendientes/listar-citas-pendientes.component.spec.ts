@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListarCitasPendientesComponent } from './listar-citas-pendientes.component';
+import { ListarCitasPendientesComponent } from '@cita/components/listar-citas-pendientes/listar-citas-pendientes.component';
 import { CitaService } from '@cita/shared/service/cita.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -41,10 +41,11 @@ describe('ListarCitasPendientesComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Consultar todas las citas pendientes', () => {
+  it('debe consultar todas las citas pendientes', () => {
     spyOn(service, 'consultarTodasLasCitasPendientes').and.returnValue(of(citaMockService.crearListadoCitasPendientes()));
     component.ngOnInit();
     expect(component.listaCitasPendientes.length).toBe(2);
+    expect(component.listaCitasPendientes[0].estado).toBe('PENDIENTE');
   });
 
   it('Error al consultar todas las citas pendientes', () => {

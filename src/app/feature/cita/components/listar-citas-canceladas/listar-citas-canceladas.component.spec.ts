@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ListarCitasCanceladasComponent } from './listar-citas-canceladas.component';
+import { ListarCitasCanceladasComponent } from '@cita/components/listar-citas-canceladas/listar-citas-canceladas.component';
 import { CitaService } from '@cita/shared/service/cita.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -40,10 +39,11 @@ describe('ListarCitasCanceladasComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Consultar todas las citas canceladas', () => {
+  it('debe consultar todas las citas canceladas', () => {
     spyOn(service, 'consultarTodasLasCitasCanceladas').and.returnValue(of(citaMockService.crearListadoCitasCanceladas()));
     component.ngOnInit();
     expect(component.listaCitasCanceladas.length).toBe(2);
+    expect(component.listaCitasCanceladas[0].estado).toBe('CANCELADA');
   });
 
   it('Error al consultar todas las citas canceladas', () => {
